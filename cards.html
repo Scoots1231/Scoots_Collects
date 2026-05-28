@@ -39,14 +39,14 @@
       <thead>
         <tr>
           <th>Player</th><th>Sport</th><th>Set</th><th>Cond.</th>
-          <th>Paid</th><th>Current</th><th>Target Sell</th>
+          <th>Purchase Date</th><th>Paid</th><th>Current</th><th>Target Sell</th>
           <th>Thesis</th><th>Notes</th><th>Status</th>
           <th>Sale Date</th><th>Sale Price</th><th>Site</th><th>P&amp;L</th>
           <th></th>
         </tr>
       </thead>
       <tbody id="cards-tbody">
-        <tr><td colspan="15" class="table-loading">Loading cards…</td></tr>
+        <tr><td colspan="16" class="table-loading">Loading cards…</td></tr>
       </tbody>
     </table>
   </div>
@@ -109,6 +109,13 @@
             <label>Price Paid ($) *</label>
             <input type="number" id="f-price-paid" step="0.01" min="0" required placeholder="0.00" />
           </div>
+          <div class="form-group form-group--sm">
+            <label>Purchase Date</label>
+            <input type="date" id="f-purchase-date" />
+          </div>
+        </div>
+
+        <div class="form-row">
           <div class="form-group">
             <label>Current Price ($)</label>
             <input type="number" id="f-current-price" step="0.01" min="0" placeholder="0.00" />

@@ -44,6 +44,7 @@ function renderRow(c) {
     <td>${sportBadge(c.sport)}</td>
     <td>${c.set || '—'}</td>
     <td>${c.condition || '—'}</td>
+    <td>${c.purchase_date || '—'}</td>
     <td>${fmt(c.price_paid)}</td>
     <td>${c.current_price ? fmt(c.current_price) : '—'}</td>
     <td>${target}</td>
@@ -79,7 +80,7 @@ function applyFilter(filter) {
   const tbody = document.getElementById('cards-tbody');
   tbody.innerHTML = rows.length
     ? rows.map(renderRow).join('')
-    : `<tr><td colspan="15" class="table-loading">${data.cards.length === 0 ? 'No cards yet — click "+ Add Card" to get started.' : 'No cards match this filter.'}</td></tr>`;
+    : `<tr><td colspan="16" class="table-loading">${data.cards.length === 0 ? 'No cards yet — click "+ Add Card" to get started.' : 'No cards match this filter.'}</td></tr>`;
 
   tbody.querySelectorAll('.btn-delete').forEach(btn =>
     btn.addEventListener('click', () => deleteCard(Number(btn.dataset.id)))
@@ -117,6 +118,7 @@ function openModal(card) {
   document.getElementById('f-thesis').value       = card ? (card.thesis || '') : '';
   document.getElementById('f-notes').value        = card ? (card.notes || '') : '';
   document.getElementById('f-status').value       = card ? card.status : 'active';
+  document.getElementById('f-purchase-date').value = card ? (card.purchase_date || '') : '';
   document.getElementById('f-sale-date').value    = card ? (card.sale_date || '') : '';
   document.getElementById('f-sale-price').value   = card ? (card.sale_price || '') : '';
   document.getElementById('f-sale-site').value    = card ? (card.sale_site || '') : '';
@@ -156,6 +158,7 @@ form.addEventListener('submit', e => {
     sport:         document.getElementById('f-sport').value,
     set:           document.getElementById('f-set').value.trim(),
     condition:     document.getElementById('f-condition').value,
+    purchase_date: document.getElementById('f-purchase-date').value,
     price_paid:    pricePaid,
     current_price: currentPrice || '',
     target_sell:   targetSell,
