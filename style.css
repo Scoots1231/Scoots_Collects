@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scoots Collects</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">Scoots Collects</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="cards.html" class="nav-link">Cards</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Sports Card Portfolio Tracker</div>
+    <div class="hero-title">Scoots Collects</div>
+    <div class="hero-date" id="live-datetime">—</div>
+  </section>
+
+  <!-- DASHBOARD STATS -->
+  <div class="dashboard">
+    <div class="stat-card">
+      <div class="stat-label">Inventory Worth</div>
+      <div class="stat-value accent" id="stat-inventory">$0.00</div>
+      <div class="stat-sub" id="stat-card-count">0 active cards</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Cash on Hand</div>
+      <div class="stat-value" id="stat-cash">$0.00</div>
+      <div class="stat-sub">Available for purchases</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">All-Time P&L</div>
+      <div class="stat-value" id="stat-pnl">$0.00</div>
+      <div class="stat-sub" id="stat-sold-count">0 cards sold</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Total Cards Tracked</div>
+      <div class="stat-value" id="stat-total">0</div>
+      <div class="stat-sub">Active + Sold</div>
+    </div>
+  </div>
+
+  <!-- SPORT BREAKDOWN -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-dot"></span>
+      <span class="section-title">Portfolio Exposure by Sport</span>
+    </div>
+    <div class="sport-grid" id="sport-grid">
+      <!-- Rendered by index.js -->
+    </div>
+  </section>
+
+  <!-- SPORTS SCORES -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-dot"></span>
+      <span class="section-title">Scores &amp; Schedule</span>
+    </div>
+    <div class="scores-grid">
+      <div class="scores-panel mlb" id="panel-mlb">
+        <div class="scores-panel-header">⚾ MLB</div>
+        <div class="scores-list" id="scores-mlb">
+          <div class="scores-loading">Loading games…</div>
+        </div>
+      </div>
+      <div class="scores-panel nba" id="panel-nba">
+        <div class="scores-panel-header">🏀 NBA</div>
+        <div class="scores-list" id="scores-nba">
+          <div class="scores-loading">Loading games…</div>
+        </div>
+      </div>
+      <div class="scores-panel nfl" id="panel-nfl">
+        <div class="scores-panel-header">🏈 NFL</div>
+        <div class="scores-list" id="scores-nfl">
+          <div class="scores-loading">Loading games…</div>
+        </div>
+      </div>
+      <div class="scores-panel nhl" id="panel-nhl">
+        <div class="scores-panel-header">🏒 NHL</div>
+        <div class="scores-list" id="scores-nhl">
+          <div class="scores-loading">Loading games…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBY LINKS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-dot"></span>
+      <span class="section-title">Hobby Resources</span>
+    </div>
+    <div class="hobby-links">
+      <a href="https://www.beckett.com" target="_blank" class="hobby-link">📋 Beckett</a>
+      <a href="https://www.psacard.com" target="_blank" class="hobby-link">🏅 PSA</a>
+      <a href="https://www.ebay.com/b/Sports-Trading-Cards-Accessories/212" target="_blank" class="hobby-link">🛒 eBay Cards</a>
+      <a href="https://www.blowoutcards.com/forums/" target="_blank" class="hobby-link">💬 Blowout Forums</a>
+      <a href="https://www.130point.com" target="_blank" class="hobby-link">📈 130Point</a>
+      <a href="https://www.comc.com" target="_blank" class="hobby-link">📦 COMC</a>
+      <a href="https://www.myslabs.com" target="_blank" class="hobby-link">🔍 MySlabs</a>
+      <a href="https://baseballamerica.com/stories/category/collectibles/" target="_blank" class="hobby-link">⚾ BA Collectibles</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-brand">Scoots Collects</div>
+    <div class="footer-note">Personal card portfolio tracker</div>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

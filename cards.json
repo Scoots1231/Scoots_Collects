@@ -1,0 +1,131 @@
+# Scoots Collects
+
+Personal sports card portfolio tracker. Tracks active holdings, sold cards, P&L, cash on hand, and portfolio exposure by sport.
+
+---
+
+## File Structure
+
+```
+Scoots_Collects/
+├── index.html          Landing page — dashboard, scores, hobby links
+├── cards.html          Card tracker — full portfolio table
+├── css/
+│   └── style.css       Shared styles
+├── js/
+│   ├── index.js        Landing page logic
+│   └── cards.js        Card tracker logic
+├── data/
+│   └── cards.json      ← Your card data lives here
+└── images/
+    └── (your card photos go here)
+```
+
+---
+
+## Adding a Card
+
+Open `data/cards.json` and add an entry to the `cards` array:
+
+```json
+{
+  "id": 7,
+  "name": "Player Name",
+  "sport": "MLB",
+  "set": "2025 Topps Chrome",
+  "condition": "NM",
+  "price_paid": 50.00,
+  "target_sell": "",
+  "current_price": 55.00,
+  "thesis": "Your investment thesis here",
+  "notes": "Any notes",
+  "sale_date": "",
+  "sale_price": "",
+  "sale_site": "",
+  "pnl": "",
+  "status": "active",
+  "image_front": "images/player-name-front.jpg",
+  "image_back": "images/player-name-back.jpg"
+}
+```
+
+**Notes:**
+- `target_sell` — leave as `""` to auto-calculate as price_paid × 1.20
+- `sport` — use `MLB`, `NBA`, `NFL`, or `NHL`
+- `status` — `"active"` or `"sold"`
+- `pnl` — leave as `""`, it is calculated automatically from sale_price − price_paid
+- `id` — must be unique for each card
+
+---
+
+## Marking a Card as Sold
+
+Find the card in `cards.json` and fill in the sale fields:
+
+```json
+"sale_date": "2026-06-01",
+"sale_price": 70.00,
+"sale_site": "eBay",
+"status": "sold"
+```
+
+The P&L, cash on hand, and all totals update automatically.
+
+---
+
+## Adding Card Images
+
+1. Add your photo files to the `images/` folder
+2. Use the naming format: `player-name-front.jpg` and `player-name-back.jpg`
+3. Update `image_front` and `image_back` in `cards.json` with the path
+
+Example:
+```json
+"image_front": "images/vlad-jr-front.jpg",
+"image_back": "images/vlad-jr-back.jpg"
+```
+
+---
+
+## Setting Starting Cash
+
+At the top of `cards.json`, update:
+
+```json
+{
+  "starting_cash": 500.00,
+  ...
+}
+```
+
+This is the money you have dedicated to the card business. Cash on hand updates automatically as you buy and sell.
+
+---
+
+## Running Locally
+
+Because the site fetches `cards.json` via JavaScript, you need a local server — you can't just open `index.html` directly in a browser.
+
+**Easiest option with Python:**
+```bash
+cd Scoots_Collects
+python3 -m http.server 8000
+```
+Then open `http://localhost:8000` in your browser.
+
+**Or with VS Code:** install the Live Server extension and click "Go Live".
+
+---
+
+## Deploying to GitHub Pages
+
+1. Push all files to `Scoots1231/Scoots_Collects`
+2. Go to **Settings → Pages**
+3. Set source to **main branch, root folder**
+4. Your site will be live at `https://scoots1231.github.io/Scoots_Collects/`
+
+---
+
+## Sports Score Data
+
+Live scores are pulled from the free ESPN public API — no API key required. Scores refresh automatically every 60 seconds.
