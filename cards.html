@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <a href="index.html" class="nav-brand">Scoots Collects</a>
     <div class="nav-links">
@@ -17,55 +16,153 @@
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
   <section class="hero hero--small">
     <div class="hero-eyebrow">Portfolio</div>
     <div class="hero-title">Card Tracker</div>
   </section>
 
-  <!-- FILTER BAR -->
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="active">Active</button>
-    <button class="filter-btn" data-filter="sold">Sold</button>
-    <button class="filter-btn" data-filter="MLB">MLB</button>
-    <button class="filter-btn" data-filter="NBA">NBA</button>
-    <button class="filter-btn" data-filter="NFL">NFL</button>
-    <button class="filter-btn" data-filter="NHL">NHL</button>
+  <div class="toolbar">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="sold">Sold</button>
+      <button class="filter-btn" data-filter="MLB">MLB</button>
+      <button class="filter-btn" data-filter="NBA">NBA</button>
+      <button class="filter-btn" data-filter="NFL">NFL</button>
+      <button class="filter-btn" data-filter="NHL">NHL</button>
+    </div>
+    <button class="btn-add" id="btn-add-card">+ Add Card</button>
   </div>
 
-  <!-- CARDS TABLE -->
   <div class="table-wrap">
-    <table class="cards-table" id="cards-table">
+    <table class="cards-table">
       <thead>
         <tr>
-          <th>Player</th>
-          <th>Sport</th>
-          <th>Set</th>
-          <th>Cond.</th>
-          <th>Paid</th>
-          <th>Current</th>
-          <th>Target Sell</th>
-          <th>Thesis</th>
-          <th>Notes</th>
-          <th>Status</th>
-          <th>Sale Date</th>
-          <th>Sale Price</th>
-          <th>Site</th>
-          <th>P&amp;L</th>
+          <th>Player</th><th>Sport</th><th>Set</th><th>Cond.</th>
+          <th>Paid</th><th>Current</th><th>Target Sell</th>
+          <th>Thesis</th><th>Notes</th><th>Status</th>
+          <th>Sale Date</th><th>Sale Price</th><th>Site</th><th>P&amp;L</th>
+          <th></th>
         </tr>
       </thead>
       <tbody id="cards-tbody">
-        <tr><td colspan="14" class="table-loading">Loading cards…</td></tr>
+        <tr><td colspan="15" class="table-loading">Loading cards…</td></tr>
       </tbody>
     </table>
   </div>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-brand">Scoots Collects</div>
     <div class="footer-note">Personal card portfolio tracker</div>
   </footer>
+
+  <!-- ADD CARD MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-title">Add Card</span>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <form class="modal-form" id="card-form">
+        <input type="hidden" id="f-id" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Player Name *</label>
+            <input type="text" id="f-name" required placeholder="e.g. Mike Trout" />
+          </div>
+          <div class="form-group form-group--sm">
+            <label>Sport *</label>
+            <select id="f-sport" required>
+              <option value="">—</option>
+              <option value="MLB">MLB</option>
+              <option value="NBA">NBA</option>
+              <option value="NFL">NFL</option>
+              <option value="NHL">NHL</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Set</label>
+            <input type="text" id="f-set" placeholder="e.g. 2024 Topps Chrome" />
+          </div>
+          <div class="form-group form-group--sm">
+            <label>Condition</label>
+            <select id="f-condition">
+              <option value="NM-MT">NM-MT</option>
+              <option value="NM">NM</option>
+              <option value="EX-MT">EX-MT</option>
+              <option value="EX">EX</option>
+              <option value="VG-EX">VG-EX</option>
+              <option value="PSA 10">PSA 10</option>
+              <option value="PSA 9">PSA 9</option>
+              <option value="PSA 8">PSA 8</option>
+              <option value="BGS 9.5">BGS 9.5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Price Paid ($) *</label>
+            <input type="number" id="f-price-paid" step="0.01" min="0" required placeholder="0.00" />
+          </div>
+          <div class="form-group">
+            <label>Current Price ($)</label>
+            <input type="number" id="f-current-price" step="0.01" min="0" placeholder="0.00" />
+          </div>
+          <div class="form-group">
+            <label>Target Sell ($)</label>
+            <input type="number" id="f-target-sell" step="0.01" min="0" placeholder="auto (×1.20)" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Investment Thesis</label>
+          <input type="text" id="f-thesis" placeholder="Why are you holding this card?" />
+        </div>
+
+        <div class="form-group">
+          <label>Notes</label>
+          <input type="text" id="f-notes" placeholder="e.g. Auto /150, numbered" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group form-group--sm">
+            <label>Status *</label>
+            <select id="f-status" required>
+              <option value="active">Active</option>
+              <option value="sold">Sold</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="sold-fields" style="display:none">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Sale Date</label>
+              <input type="date" id="f-sale-date" />
+            </div>
+            <div class="form-group">
+              <label>Sale Price ($)</label>
+              <input type="number" id="f-sale-price" step="0.01" min="0" placeholder="0.00" />
+            </div>
+            <div class="form-group">
+              <label>Sale Site</label>
+              <input type="text" id="f-sale-site" placeholder="e.g. eBay" />
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" id="btn-cancel">Cancel</button>
+          <button type="submit" class="btn-save">Save Card</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="js/cards.js"></script>
 </body>
