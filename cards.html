@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cards — Scoots Collects</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">Scoots Collects</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="cards.html" class="nav-link active">Cards</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="hero hero--small">
+    <div class="hero-eyebrow">Portfolio</div>
+    <div class="hero-title">Card Tracker</div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="active">Active</button>
+    <button class="filter-btn" data-filter="sold">Sold</button>
+    <button class="filter-btn" data-filter="MLB">MLB</button>
+    <button class="filter-btn" data-filter="NBA">NBA</button>
+    <button class="filter-btn" data-filter="NFL">NFL</button>
+    <button class="filter-btn" data-filter="NHL">NHL</button>
+  </div>
+
+  <!-- CARDS TABLE -->
+  <div class="table-wrap">
+    <table class="cards-table" id="cards-table">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Sport</th>
+          <th>Set</th>
+          <th>Cond.</th>
+          <th>Paid</th>
+          <th>Current</th>
+          <th>Target Sell</th>
+          <th>Thesis</th>
+          <th>Notes</th>
+          <th>Status</th>
+          <th>Sale Date</th>
+          <th>Sale Price</th>
+          <th>Site</th>
+          <th>P&amp;L</th>
+        </tr>
+      </thead>
+      <tbody id="cards-tbody">
+        <tr><td colspan="14" class="table-loading">Loading cards…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-brand">Scoots Collects</div>
+    <div class="footer-note">Personal card portfolio tracker</div>
+  </footer>
+
+  <script src="js/cards.js"></script>
+</body>
+</html>
