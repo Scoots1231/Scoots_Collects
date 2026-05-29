@@ -42,11 +42,11 @@
           <th>Purchase Date</th><th>Paid</th><th>Current</th><th>Target Sell</th>
           <th>Thesis</th><th>Notes</th><th>Status</th>
           <th>Sale Date</th><th>Sale Price</th><th>Site</th><th>P&amp;L</th>
-          <th></th>
+          <th>Images</th><th></th>
         </tr>
       </thead>
       <tbody id="cards-tbody">
-        <tr><td colspan="16" class="table-loading">Loading cards…</td></tr>
+        <tr><td colspan="17" class="table-loading">Loading cards…</td></tr>
       </tbody>
     </table>
   </div>
@@ -137,6 +137,17 @@
         </div>
 
         <div class="form-row">
+          <div class="form-group">
+            <label>Front Image URL</label>
+            <input type="url" id="f-image-front" placeholder="https://i.imgur.com/…" />
+          </div>
+          <div class="form-group">
+            <label>Back Image URL</label>
+            <input type="url" id="f-image-back" placeholder="https://i.imgur.com/…" />
+          </div>
+        </div>
+
+        <div class="form-row">
           <div class="form-group form-group--sm">
             <label>Status *</label>
             <select id="f-status" required>
@@ -168,6 +179,18 @@
           <button type="submit" class="btn-save">Save Card</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- IMAGE LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox-overlay">
+    <div class="lightbox">
+      <div class="lightbox-tabs">
+        <button class="lightbox-tab active" id="lb-tab-front">Front</button>
+        <button class="lightbox-tab" id="lb-tab-back">Back</button>
+      </div>
+      <img class="lightbox-img" id="lightbox-img" src="" alt="Card image" />
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
     </div>
   </div>
 
