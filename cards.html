@@ -38,7 +38,7 @@
     <table class="cards-table">
       <thead>
         <tr>
-          <th>Player</th><th>Sport</th><th>Set</th><th>Cond.</th>
+          <th>Player</th><th>Sport</th><th>Purpose</th><th>Set</th><th>Cond.</th>
           <th>Purchase Date</th><th>Paid</th><th>Current</th><th>Target Sell</th>
           <th>Thesis</th><th>Notes</th><th>Status</th>
           <th>Sale Date</th><th>Sale Price</th><th>Site</th><th>P&amp;L</th>
@@ -46,7 +46,7 @@
         </tr>
       </thead>
       <tbody id="cards-tbody">
-        <tr><td colspan="17" class="table-loading">Loading cards…</td></tr>
+        <tr><td colspan="18" class="table-loading">Loading cards…</td></tr>
       </tbody>
     </table>
   </div>
@@ -70,6 +70,13 @@
           <div class="form-group">
             <label>Player Name *</label>
             <input type="text" id="f-name" required placeholder="e.g. Mike Trout" />
+          </div>
+          <div class="form-group form-group--sm">
+            <label>Purpose *</label>
+            <select id="f-purpose" required>
+              <option value="RESALE">RESALE</option>
+              <option value="PC">PC</option>
+            </select>
           </div>
           <div class="form-group form-group--sm">
             <label>Sport *</label>

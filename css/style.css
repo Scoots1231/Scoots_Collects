@@ -401,6 +401,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .badge-active  { background: rgba(34,197,94,0.15); color: var(--green); }
+.badge-pc      { background: rgba(168,85,247,0.15); color: #c084fc; }
+.badge-resale  { background: rgba(251,191,36,0.15); color: #fbbf24; }
 .badge-sold    { background: rgba(148,163,184,0.15); color: var(--muted); }
 
 .badge-mlb { background: rgba(230,57,70,0.15); color: var(--mlb); }

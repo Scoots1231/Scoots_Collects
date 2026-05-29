@@ -51,9 +51,14 @@ function renderRow(c) {
       </td>`
     : '<td>—</td>';
 
+  const purposeBadge = c.purpose === 'PC'
+    ? '<span class="badge badge-pc">PC</span>'
+    : '<span class="badge badge-resale">RESALE</span>';
+
   return `<tr data-sport="${c.sport}" data-status="${c.status}">
     <td><strong>${c.name}</strong></td>
     <td>${sportBadge(c.sport)}</td>
+    <td>${purposeBadge}</td>
     <td>${c.set || '—'}</td>
     <td>${c.condition || '—'}</td>
     <td>${c.purchase_date || '—'}</td>
@@ -169,6 +174,7 @@ function openModal(card) {
 
   document.getElementById('f-id').value            = card ? card.id : '';
   document.getElementById('f-name').value          = card ? card.name : '';
+  document.getElementById('f-purpose').value       = card ? (card.purpose || 'RESALE') : 'RESALE';
   document.getElementById('f-sport').value         = card ? card.sport : '';
   document.getElementById('f-set').value           = card ? (card.set || '') : '';
   document.getElementById('f-condition').value     = card ? (card.condition || 'NM') : 'NM';
@@ -217,6 +223,7 @@ form.addEventListener('submit', e => {
   const card = {
     id:            editingId || Date.now(),
     name:          document.getElementById('f-name').value.trim(),
+    purpose:       document.getElementById('f-purpose').value,
     sport:         document.getElementById('f-sport').value,
     set:           document.getElementById('f-set').value.trim(),
     condition:     document.getElementById('f-condition').value,
